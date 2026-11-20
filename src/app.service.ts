@@ -17,4 +17,8 @@ export class AppService {
     const [results] = await mysqlConnection.execute("SELECT id, name, email, startDate, guests FROM reservations")
     return results as Foglalas[];
   }
+
+  async insertFoglalas(name: string, email: string, startDate: Date, guests: number) {
+    await mysqlConnection.execute("INSERT INTO reservations (name, email, startDate, guests) VALUES (?,?,?,?)", [name, email, startDate, guests]);
+  }
 }

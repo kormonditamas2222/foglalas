@@ -43,5 +43,12 @@ export class AppController {
         guests: body.guests
       }
     }
+    else {
+      await this.appService.insertFoglalas(body.name, body.email, receivedDate, parseInt(body.guests))
+      return {
+        foglalasok: (await this.appService.getNumberOfGuests()).length,
+        success: "Sikeres foglalás"
+      }
+    }
   }
 }
