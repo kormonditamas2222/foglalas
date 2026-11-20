@@ -3,3 +3,13 @@ body {
     color:rgb(58, 46, 135);
 }
 
+li {
+    color: red;
+}
+
+.fail {
+    color: red;
+}
+.success {
+    color: green;
+}

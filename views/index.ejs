@@ -11,8 +11,26 @@
 <body>
     <h1>Petrik Hotel szállásfoglaló oldala</h1>
     <h2>Foglalások száma: <%= foglalasok %> </h2>
+    <h2>Foglalás leadó űrlap</h2>
     <form method="post">
-
+        <label for="name">Név</label>
+        <input type="text" name="name" value="<%= locals.name %>"> <br>
+        <label for="email">Email</label>
+        <input type="text" name="email" value="<%= locals.email %>"> <br>
+        <label for="startDate">Mikortól szállna meg?</label>
+        <input type="datetime-local" name="startDate" value="<%= locals.startDate %>"> <br>
+        <label for="guests">Személyek száma</label>
+        <input type="number" name="guests" value="<%= locals.guests %>"> <br>
+        <button type="submit">Foglalás leadása</button>
     </form>
+
+    <% if (locals.errors) { %>
+        <p class="fail">Kérjük helyesen töltse ki az űrlapot!</p>
+        <ul>
+            <% errors.forEach(error => { %>
+                <li><%= error %></li>
+            <% }) %>
+        </ul>
+    <% } %>
 </body>
 </html>
