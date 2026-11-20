@@ -7,9 +7,9 @@ export class AppController {
 
   @Get()
   @Render('index')
-  getHello() {
+  async getMainPage() {
     return {
-      title: 'My First NestJS App'
-    }
+      foglalasok: (await this.appService.getNumberOfGuests()).length
+    };
   }
 }
